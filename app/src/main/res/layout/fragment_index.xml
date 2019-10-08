@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EDEDED">
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingBottom="@dimen/y12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/y140"
+                    android:layout_marginTop="@dimen/y13"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_noti_title"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/y30"
+                    android:layout_marginTop="@dimen/y8"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="@dimen/x25"
+                    android:text="村淘公告"
+                    android:textColor="#ff000000"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner" />
+
+                <TextView
+                    android:id="@+id/tv_noti_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x99"
+                    android:text="相**爱分享法国Ladybaby电动..."
+                    android:textColor="#ff808080"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_noti_title"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_noti_title" />
+
+                <TextView
+                    android:id="@+id/tv_noti_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/x24"
+                    android:text="奖励￥0.96"
+                    android:textColor="#ffd9764a"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_noti_title"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_noti_title" />
+
+                <com.flyco.tablayout.SlidingTabLayout
+                    android:id="@+id/tab"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/y50"
+                    android:layout_marginTop="@dimen/y8"
+                    android:background="#ffffff"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_noti_title"
+                    app:tl_indicator_color="#D71B43"
+                    app:tl_indicator_width="@dimen/x30"
+                    app:tl_tab_space_equal="true"
+                    app:tl_textSelectColor="#D71B43"
+                    app:tl_textUnselectColor="#1C1C1C"
+                    app:tl_textsize="@dimen/x14"></com.flyco.tablayout.SlidingTabLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_container"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/y251"
+                    android:layout_marginTop="@dimen/y8"
+                    android:background="#fff"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tab"></androidx.viewpager.widget.ViewPager>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x16"
+                    android:layout_marginTop="@dimen/y12"
+                    android:text="特别说明"
+                    android:textColor="#ff000000"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vp_container" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x16"
+                    android:layout_marginTop="@dimen/y41"
+                    android:layout_marginRight="@dimen/x16"
+                    android:text="1.绑定好友服务站二维码(请在底部查看二维码)，注意:所有做单的账号都要绑定，否则会丢单。\n\n2.使用一个正确的村淘地址作为收货地址，收货人和手机号随意设计费那就好高科技十多年刚开始。
+            \n\n3.找到下单宝贝，复制宝贝链接，进入本系统选择转链接，然后使用转链接二维码进入手机淘宝左上角。
+
+"
+                    android:textColor="#ff808080"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vp_container" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
