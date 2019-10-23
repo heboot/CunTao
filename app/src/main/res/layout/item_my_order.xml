@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rect_white_8"
+        android:paddingBottom="@dimen/y12">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x8"
+            android:layout_marginTop="@dimen/y17"
+            android:text="2018-01-01"
+            android:textColor="#ff181919"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x10"
+            android:text="待收货  |"
+            android:textColor="#ff181919"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintRight_toLeftOf="@+id/iv_del"
+            app:layout_constraintTop_toTopOf="@+id/tv_date" />
+
+        <ImageView
+            android:id="@+id/iv_del"
+            android:layout_width="@dimen/x14"
+            android:layout_height="@dimen/y13"
+            android:layout_marginRight="@dimen/x7"
+            android:background="@mipmap/icon_lajitong"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_date"></ImageView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y1"
+            android:layout_marginTop="@dimen/y45"
+            android:background="#ffeeeeee"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/y50"
+            android:layout_marginLeft="@dimen/x7"
+            android:layout_marginTop="@dimen/y60"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="175dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_marginTop="@dimen/x4"
+            android:text="Dior迪奥 烈艳蓝金唇膏 热卖色号 #860 3.5克 "
+            android:textColor="#ff181919"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_img"
+            app:layout_constraintTop_toTopOf="@+id/iv_img" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x7"
+            android:text="￥205.00"
+            android:textColor="#ff181919"
+            android:textSize="12sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_info" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y8"
+            android:text="x1"
+            android:textColor="#ff666666"
+            android:textSize="12sp"
+            app:layout_constraintRight_toRightOf="@+id/tv_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y1"
+            android:layout_marginTop="@dimen/y20"
+            android:background="#ffeeeeee"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_img"></View>
+
+
+        <TextView
+            android:id="@+id/tv_total_money_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y35"
+            android:layout_marginRight="@dimen/x7"
+            android:text="  应付总额："
+            android:textColor="#181819"
+            android:textSize="13sp"
+            app:layout_constraintRight_toLeftOf="@+id/tv_total_money"
+            app:layout_constraintTop_toBottomOf="@+id/iv_img" />
+
+        <TextView
+            android:id="@+id/tv_total_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y35"
+            android:layout_marginRight="@dimen/x7"
+            android:text="￥215.00"
+            android:textColor="#D9764A"
+            android:textSize="13sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_img" />
+
+        <TextView
+            android:id="@+id/tv_option"
+            android:layout_width="@dimen/x82"
+            android:layout_height="@dimen/y30"
+            android:layout_marginTop="@dimen/y12"
+            app:layout_constraintRight_toRightOf="@+id/tv_total_money"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_money"></TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

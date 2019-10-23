@@ -15,13 +15,48 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"></include>
 
+        <View
+            android:id="@+id/v_center"
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <TextView
+            android:id="@+id/tv_tb_order"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y50"
+            android:background="#383B44"
+            android:gravity="center"
+            android:text="村淘订单"
+            android:textColor="#E4D8C6"
+            android:textSize="@dimen/x18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/v_center"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar"></TextView>
+
+        <TextView
+            android:id="@+id/tv_ct_order"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y50"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="淘宝客订单"
+            android:textColor="#383B44"
+            android:textSize="@dimen/x18"
+            app:layout_constraintLeft_toRightOf="@+id/v_center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar"></TextView>
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/y24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include_toolbar">
+            app:layout_constraintTop_toBottomOf="@+id/tv_tb_order">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
