@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ededed">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y60"
+            android:background="#f2f2f2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/layout_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginTop="@dimen/y24"
+            android:text="请绑定持卡人本人的银行卡"
+            android:textColor="#ff808080"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
+
+        <TextView
+            android:layout_marginTop="@dimen/y10"
+            android:id="@+id/tv_name_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y45"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x16"
+            android:text="真实姓名"
+            android:textColor="#ff000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tip" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y45"
+            android:layout_marginLeft="@dimen/x110"
+            android:background="@null"
+            android:hint="请输入您的真实姓名"
+            android:textColorHint="#B3B3B3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_name_title"></EditText>
+
+
+        <TextView
+            android:id="@+id/tv_alipay_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y45"
+            android:layout_marginTop="@dimen/y1"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x16"
+            android:text="支付宝账号"
+            android:textColor="#ff000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_title" />
+
+        <EditText
+            android:id="@+id/et_alipay"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y45"
+            android:layout_marginLeft="@dimen/x110"
+            android:background="@null"
+            android:hint="请输入支付宝账号"
+            android:textColorHint="#B3B3B3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_alipay_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_alipay_title"></EditText>
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="@dimen/x335"
+            android:layout_height="@dimen/y45"
+            android:layout_marginTop="@dimen/y25"
+            android:background="@drawable/bg_rect_383b44_23"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#E4D8C6"
+            android:textSize="@dimen/x18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_alipay_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

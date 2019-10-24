@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ededed">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y60"
+            android:background="#f2f2f2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/layout_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+
+        <ImageView
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y80"
+            android:layout_marginTop="@dimen/y60"
+            android:background="@mipmap/icon_alipay"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_alipay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y173"
+            android:gravity="center"
+            android:text="你的支付宝账号: 15802443650"
+            android:textColor="#ff000000"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
+
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="@dimen/x335"
+            android:layout_height="@dimen/y45"
+            android:layout_marginTop="@dimen/y25"
+            android:background="@drawable/bg_rect_383b44_23"
+            android:gravity="center"
+            android:text="更换支付宝账号"
+            android:textColor="#E4D8C6"
+            android:textSize="@dimen/x18"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_alipay" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

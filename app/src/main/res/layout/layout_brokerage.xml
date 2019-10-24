@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/y15">
+
+        <View
+            android:id="@+id/v_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y200"
+            android:background="@drawable/bg_brokerage_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y45"
+            android:text="累计收益"
+            android:textColor="#ffe4d8c6"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y78"
+            android:text="￥32.44"
+            android:textColor="#ffe4d8c6"
+            android:textSize="27sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x94"
+            android:layout_marginTop="@dimen/y29"
+            android:text="余额:￥51.46"
+            android:textColor="#ffe4d8c6"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_money" />
+
+        <TextView
+            android:id="@+id/tv_cash"
+            android:layout_width="@dimen/x65"
+            android:layout_height="@dimen/y30"
+            android:layout_marginLeft="@dimen/x24"
+            android:background="@mipmap/bg_cash_btn"
+            android:gravity="center"
+            android:text="提现"
+            android:textColor="#383B44"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_balance"
+            app:layout_constraintLeft_toRightOf="@+id/tv_balance"
+            app:layout_constraintTop_toTopOf="@+id/tv_balance"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x22"
+            android:layout_marginTop="@dimen/y15"
+            android:layout_marginRight="@dimen/x22"
+            android:text="返还佣金说明:现在申请提现,预计2个小时内到账，实际到账时
+间以处理结果为准"
+            android:textColor="#ff808080"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_bg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y123"
+        android:layout_marginTop="@dimen/y8">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="@dimen/x143"
+            android:layout_height="@dimen/y83"
+            android:background="@color/qmui_config_color_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginTop="@dimen/y4"
+            android:layout_marginRight="@dimen/x16"
+            android:text="在发生纠纷以后，我们想到的都是怎么样去进行结局，那么如果企..."
+            android:textColor="#ff808080"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="浏览量:581"
+            android:textColor="#ff808080"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_del"
+            android:layout_width="@dimen/x60"
+            android:layout_height="@dimen/y30"
+            android:background="@drawable/bg_rect_383b44_15"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="#E4D8C6"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+            app:layout_constraintRight_toRightOf="parent"></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f2f2f2">
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/layout_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+        <View
+            android:id="@+id/v_center"
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <TextView
+            android:id="@+id/tv_cashed"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y50"
+            android:layout_marginTop="@dimen/y8"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="已提现"
+            android:textColor="#383B44"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/v_center"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_cash_ing"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y50"
+            android:layout_marginTop="@dimen/y8"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="待审核"
+            android:textColor="#383B44"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@+id/v_center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
+
+        <com.zonghong.cuntao.view.MRefreshView
+            android:id="@+id/mrv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cashed">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include_toolbar"></androidx.recyclerview.widget.RecyclerView>
+        </com.zonghong.cuntao.view.MRefreshView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

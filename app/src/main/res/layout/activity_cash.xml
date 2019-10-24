@@ -7,6 +7,7 @@
         android:background="#ededed">
 
         <View
+            android:id="@+id/v1"
             android:layout_width="0dp"
             android:layout_height="@dimen/y195"
             android:background="#fff"
@@ -107,5 +108,113 @@
             android:textSize="14sp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_money"></TextView>
+
+
+        <View
+            android:id="@+id/v_center"
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/x1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <TextView
+            android:id="@+id/tv_cash_alipay"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y50"
+            android:layout_marginTop="@dimen/y8"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="提现到支付宝"
+            android:textColor="#383B44"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/v_center"
+            app:layout_constraintTop_toBottomOf="@+id/v1" />
+
+        <TextView
+            android:id="@+id/tv_cash_bank"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y50"
+            android:layout_marginTop="@dimen/y8"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="提现到支付宝"
+            android:textColor="#383B44"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@+id/v_center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v1" />
+
+        <View
+            android:id="@+id/v2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y100"
+            android:layout_marginTop="@dimen/y1"
+            android:background="#fff"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cash_alipay"></View>
+
+        <View
+            android:id="@+id/v_content"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y75"
+            android:layout_marginLeft="@dimen/x15"
+            android:layout_marginTop="@dimen/y12"
+            android:layout_marginRight="@dimen/x15"
+            android:background="@drawable/bg_rect_ffeeeeee_8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/v2"></View>
+
+        <View
+            android:id="@+id/v_icon"
+            android:layout_width="@dimen/x25"
+            android:layout_height="@dimen/y25"
+            android:layout_marginLeft="@dimen/x72"
+            android:background="@mipmap/icon_bank"
+            app:layout_constraintBottom_toBottomOf="@+id/v_content"
+            app:layout_constraintLeft_toLeftOf="@+id/v_content"
+            app:layout_constraintTop_toTopOf="@+id/v_content"></View>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x8"
+            android:text="建设银行 储蓄卡 (5874)"
+            android:textColor="#ff000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/v_content"
+            app:layout_constraintLeft_toRightOf="@+id/v_icon"
+            app:layout_constraintTop_toTopOf="@+id/v_content" />
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="@dimen/x335"
+            android:layout_height="@dimen/y45"
+            android:layout_marginTop="@dimen/y50"
+            android:background="@drawable/bg_rect_383b44_23"
+            android:gravity="center"
+            android:text="申请提现"
+            android:textColor="#E4D8C6"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v2"></TextView>
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="@dimen/y20"
+            android:text="注:现在申请提现,预计2个小时内到账，实际到账时间以处理
+结果为准"
+            android:textColor="#ff808080"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_submit"
+            app:layout_constraintRight_toRightOf="@+id/tv_submit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_submit" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
