@@ -36,11 +36,42 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include_toolbar" />
 
+
         <TextView
+            android:id="@+id/tv_bname_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y45"
             android:layout_marginTop="@dimen/y10"
+            android:background="#fff"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x16"
+            android:text="开户行"
+            android:textColor="#ff000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tip" />
+
+        <EditText
+            android:id="@+id/et_bname"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y45"
+            android:layout_marginLeft="@dimen/x110"
+            android:background="@null"
+            android:hint="请输入开户行名称"
+            android:textColorHint="#B3B3B3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_bname_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_bname_title"></EditText>
+
+
+        <TextView
             android:id="@+id/tv_name_title"
             android:layout_width="0dp"
             android:layout_height="@dimen/y45"
+            android:layout_marginTop="@dimen/y1"
             android:background="#fff"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/x16"
@@ -49,7 +80,7 @@
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tip" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_bname_title" />
 
         <EditText
             android:id="@+id/et_name"

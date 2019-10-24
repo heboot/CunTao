@@ -6,5 +6,22 @@
         android:layout_height="@dimen/y107"
         android:layout_marginLeft="@dimen/x3">
 
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <View
+            android:id="@+id/v_del"
+            android:layout_width="@dimen/x20"
+            android:layout_height="@dimen/y20"
+            android:background="@mipmap/icon_clear"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

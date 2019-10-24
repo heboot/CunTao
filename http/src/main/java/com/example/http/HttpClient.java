@@ -2,6 +2,9 @@ package com.example.http;
 
 
 import com.waw.hr.mutils.base.BaseBean;
+import com.waw.hr.mutils.bean.BankListBean;
+import com.waw.hr.mutils.bean.LoginBean;
+import com.waw.hr.mutils.bean.UserInfoBean;
 
 import java.util.List;
 import java.util.Map;
@@ -10,10 +13,12 @@ import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.QueryMap;
 
 /**
  * Created by jingbin on 16/11/21.
@@ -34,17 +39,62 @@ public interface HttpClient {
 
 
     @FormUrlEncoded
-    @POST("in/uCreate")
-    Observable<BaseBean<Object>> uCreate(@FieldMap Map<String, Object> params);
+    @POST("Register")
+    Observable<BaseBean<Object>> Register(@FieldMap Map<String, Object> params);
 
 
     @FormUrlEncoded
-    @POST("in/sendVerify")
-    Observable<BaseBean<String>> sendVerify(@FieldMap Map<String, Object> params);
+    @POST("sendCode")
+    Observable<BaseBean<Object>> sendVerify(@FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("login")
+    Observable<BaseBean<LoginBean>> login(@FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("changePwd")
+    Observable<BaseBean<Object>> changePwd(@FieldMap Map<String, Object> params);
 
 
+    @POST("profileCenter")
+    Observable<BaseBean<UserInfoBean>> profileCenter(@Header("token") String token);
 
+    @FormUrlEncoded
+    @POST("changeName")
+    Observable<BaseBean<Object>> changeName(@Header("token") String token, @FieldMap Map<String, Object> params);
 
+    @Multipart
+    @POST("changeAvatar")
+    Observable<BaseBean<Object>> changeAvatar(@Header("token") String token, @Part MultipartBody.Part img);
+
+    @GET("changeGender")
+    Observable<BaseBean<Object>> changeGender(@Header("token") String token, @QueryMap Map<String, Object> params);
+
+    @GET("getHelp")
+    Observable<BaseBean<Map>> getHelp();
+
+    @POST("alipayInfo")
+    Observable<BaseBean<List<Map>>> alipayInfo(@Header("token") String token);
+
+    @FormUrlEncoded
+    @POST("changePayAccount")
+    Observable<BaseBean<Object>> changePayAccount(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("changeMobile")
+    Observable<BaseBean<Object>> changeMobile(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("accountDel")
+    Observable<BaseBean<Object>> accountDel(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("accountList")
+    Observable<BaseBean<List<BankListBean>>> accountList(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("accountAdd")
+    Observable<BaseBean<Object>> accountAdd(@Header("token") String token, @FieldMap Map<String, Object> params);
 //    @GET("type/read")
 //    Observable<BaseBean<List<WordTypeBean>>> read(@QueryMap Map<String, Object> params);
 //

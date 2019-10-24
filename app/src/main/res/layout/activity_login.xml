@@ -9,6 +9,7 @@
         <com.qmuiteam.qmui.layout.QMUILinearLayout
             android:layout_width="@dimen/x315"
             android:layout_height="@dimen/y320"
+            android:id="@+id/qlyt_container"
             android:background="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -38,8 +39,10 @@
                     android:layout_marginTop="@dimen/y88"
                     android:layout_marginRight="@dimen/x23"
                     android:background="@null"
-                    android:text="111"
+                    android:hint="请输入手机号"
                     android:textColorHint="#999999"
+                    android:focusable="true"
+                    android:inputType="number"
                     android:textSize="@dimen/x14"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -76,7 +79,7 @@
                     android:layout_marginRight="@dimen/x23"
                     android:background="@null"
                     android:inputType="textPassword"
-                    android:text="111"
+                  android:hint="请输入密码"
                     android:textColorHint="#999999"
                     android:textSize="@dimen/x14"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -128,6 +131,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/v_pwd" />
 
                 <Button
+                    android:id="@+id/btn_login"
                     android:text="登 录"
                     android:textColor="#E4D8C6"
                     android:textSize="@dimen/x17"

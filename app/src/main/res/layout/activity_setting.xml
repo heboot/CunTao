@@ -149,12 +149,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/x38"
-            android:text="男"
+            android:text=""
             android:textColor="#ff7f7f7f"
             android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_sex_title"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_alipay_title"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_sex_title" />
+            app:layout_constraintTop_toTopOf="@+id/tv_alipay_title" />
 
         <View
             android:layout_width="0dp"
@@ -187,7 +187,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/x38"
-            android:text="123123123123"
             android:textColor="#ff7f7f7f"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_phone_title"
@@ -224,7 +223,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/x38"
-            android:text="123123123123"
             android:textColor="#ff7f7f7f"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_bank_title"
@@ -250,7 +248,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/x15"
             android:paddingRight="@dimen/x15"
-            android:text="银行卡"
+            android:text="帮助"
             android:textColor="#ff000000"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -262,7 +260,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/x38"
-            android:text="123123123123"
+            android:text=""
             android:textColor="#ff7f7f7f"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_help_title"
@@ -270,6 +268,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_help_title" />
 
         <TextView
+            android:id="@+id/tv_logout"
             android:layout_width="@dimen/x335"
             android:layout_height="@dimen/y45"
             android:layout_marginTop="@dimen/y25"
