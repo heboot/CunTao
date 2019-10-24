@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y62">
+
+        <View
+            android:id="@+id/v_rank_top"
+            android:layout_width="@dimen/x42"
+            android:layout_height="@dimen/y51"
+            android:layout_marginLeft="@dimen/x19"
+            android:layout_marginTop="@dimen/y8"
+            android:background="@mipmap/icon_rank_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:text="11111111111111111111111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x70"
+            android:textColor="#ff291e1e"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x35"
+            android:text="9200"
+            android:textColor="#ffd9764a"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="@dimen/y2"
+            android:text="元"
+            android:textColor="#ff797979"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_money"
+            app:layout_constraintLeft_toRightOf="@+id/tv_money" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
