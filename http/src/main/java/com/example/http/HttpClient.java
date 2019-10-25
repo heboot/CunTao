@@ -10,6 +10,7 @@ import com.waw.hr.mutils.bean.IndexBean;
 import com.waw.hr.mutils.bean.LoginBean;
 import com.waw.hr.mutils.bean.RankListBean;
 import com.waw.hr.mutils.bean.UserInfoBean;
+import com.waw.hr.mutils.model.OrderModel;
 
 import java.util.List;
 import java.util.Map;
@@ -65,9 +66,8 @@ public interface HttpClient {
     @POST("profileCenter")
     Observable<BaseBean<UserInfoBean>> profileCenter(@Header("token") String token);
 
-    @FormUrlEncoded
-    @POST("changeName")
-    Observable<BaseBean<Object>> changeName(@Header("token") String token, @FieldMap Map<String, Object> params);
+    @GET("changeName")
+    Observable<BaseBean<Object>> changeName(@Header("token") String token, @QueryMap Map<String, Object> params);
 
     @Multipart
     @POST("changeAvatar")
@@ -132,6 +132,18 @@ public interface HttpClient {
     @FormUrlEncoded
     @POST("moneyWithdrawDeposit")
     Observable<BaseBean<Object>> moneyWithdrawDeposit(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+
+
+    @FormUrlEncoded
+    @POST("orderIncrease")
+    Observable<BaseBean<Object>> orderIncrease(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("orderList")
+    Observable<BaseBean<List<OrderModel>>> orderList(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+
 
     @GET("home")
     Observable<BaseBean<IndexBean>> homea(@Header("token") String token, @Query("data_type") String type);

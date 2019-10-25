@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"></View>
 
         <TextView
-            android:id="@+id/tv_tb_order"
+            android:id="@+id/tv_ct_order"
             android:layout_width="0dp"
             android:layout_height="@dimen/y50"
             android:background="#383B44"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/include_toolbar"></TextView>
 
         <TextView
-            android:id="@+id/tv_ct_order"
+            android:id="@+id/tv_tb_order"
             android:layout_width="0dp"
             android:layout_height="@dimen/y50"
             android:background="#fff"
@@ -74,6 +74,9 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <EditText
+                        android:text="19030870232821"
+                        android:padding="@dimen/dp_10"
+                        android:hint="请输入订单编号"
                         android:id="@+id/et_no"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -95,6 +98,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/qlyt_no">
 
                     <EditText
+                        android:padding="@dimen/x10"
+                        android:hint="请输入品名"
                         android:id="@+id/et_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -116,6 +121,9 @@
                     app:layout_constraintTop_toBottomOf="@+id/qlyt_name">
 
                     <EditText
+                        android:padding="@dimen/x10"
+                        android:hint="请输入金额"
+                        android:inputType="numberDecimal"
                         android:id="@+id/et_money"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

@@ -30,9 +30,9 @@ public class MyOrderActivity extends BaseActivity<ActivityMyOrderBinding> {
     @Override
     public void initData() {
 
-        fragmentList.add(MyOrderFragment.newInstance(OrderType.DAIFAHUO));
-        fragmentList.add(MyOrderFragment.newInstance(OrderType.DAISHOUHUO));
-        fragmentList.add(MyOrderFragment.newInstance(OrderType.FINISH));
+        fragmentList.add(MyOrderFragment.newInstance(2));
+        fragmentList.add(MyOrderFragment.newInstance(3));
+        fragmentList.add(MyOrderFragment.newInstance(4));
         String[] titles = {"待发货", "待收货", "已完成"};
         binding.tab.setViewPager(binding.vpContainer, titles, this, fragmentList);
     }

@@ -83,6 +83,8 @@
 
         <activity android:name=".activity.user.CashLogActivity"></activity>
 
+        <activity android:name=".activity.MyOrderActivity"></activity>
+
     </application>
 
 </manifest>
