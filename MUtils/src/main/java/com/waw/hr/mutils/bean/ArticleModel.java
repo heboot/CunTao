@@ -22,6 +22,15 @@ public class ArticleModel {
     private String u_name;
     private String u_avatar;
     private List<String> a_image;
+    private List<String> image;
+
+    public List<String> getImage() {
+        return image;
+    }
+
+    public void setImage(List<String> image) {
+        this.image = image;
+    }
 
     public int getA_id() {
         return a_id;

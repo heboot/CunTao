@@ -68,6 +68,7 @@
             android:layout_marginTop="@dimen/y57"
             android:background="@null"
             android:hint="输入提现金额"
+            android:inputType="numberDecimal"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include_toolbar"></EditText>
@@ -139,7 +140,7 @@
             android:layout_marginTop="@dimen/y8"
             android:background="#fff"
             android:gravity="center"
-            android:text="提现到支付宝"
+            android:text="提现到银行"
             android:textColor="#383B44"
             android:textSize="16sp"
             app:layout_constraintLeft_toRightOf="@+id/v_center"
@@ -178,17 +179,51 @@
             app:layout_constraintLeft_toLeftOf="@+id/v_content"
             app:layout_constraintTop_toTopOf="@+id/v_content"></View>
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginLeft="@dimen/x8"
-            android:text="建设银行 储蓄卡 (5874)"
-            android:textColor="#ff000000"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/v_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/v_content"
             app:layout_constraintLeft_toRightOf="@+id/v_icon"
-            app:layout_constraintTop_toTopOf="@+id/v_content" />
+            app:layout_constraintRight_toRightOf="@id/v_content"
+            app:layout_constraintTop_toTopOf="@+id/v_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="建设银行 储蓄卡 (5874)"
+                android:textColor="#ff000000"
+                android:textSize="16sp"
+
+                app:layout_constraintLeft_toRightOf="@+id/v_icon"
+                app:layout_constraintTop_toTopOf="@+id/v_content" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_bind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="绑定银行卡"
+                android:textColor="#ff45b7f2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#ff000000"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toRightOf="@+id/v_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/tv_submit"
@@ -205,8 +240,8 @@
             app:layout_constraintTop_toBottomOf="@+id/v2"></TextView>
 
         <TextView
-            android:layout_width="320dp"
-            android:layout_height="27dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/y20"
             android:text="注:现在申请提现,预计2个小时内到账，实际到账时间以处理
 结果为准"

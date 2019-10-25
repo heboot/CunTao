@@ -71,6 +71,18 @@
 
         <activity android:name=".activity.user.NewBankActivity"></activity>
 
+        <activity android:name=".activity.PublishContentActivity"></activity>
+
+        <activity android:name=".activity.article.ArticleAddActivity"></activity>
+
+        <activity android:name=".activity.user.MyAtricleActivity"></activity>
+
+        <activity android:name=".activity.TransitionResultActivity"></activity>
+
+        <activity android:name=".activity.user.CashActivity"></activity>
+
+        <activity android:name=".activity.user.CashLogActivity"></activity>
+
     </application>
 
 </manifest>

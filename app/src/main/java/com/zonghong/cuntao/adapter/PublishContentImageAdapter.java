@@ -33,6 +33,7 @@ public class PublishContentImageAdapter extends BaseQuickAdapter<String, BaseVie
             binding.vDel.setVisibility(View.GONE);
             ImageUtils.showImage(R.mipmap.icon_add_photo,binding.ivImg);
         }else{
+            binding.vDel.setVisibility(View.VISIBLE);
             ImageUtils.showImage(item,binding.ivImg);
         }
         binding.getRoot().setOnClickListener((v)->{

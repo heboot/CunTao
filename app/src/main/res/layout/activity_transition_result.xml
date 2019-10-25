@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/v1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y60"
+            android:background="#f2f2f2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/layout_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></include>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clyt_container"
+            android:layout_width="@dimen/x345"
+            android:background="#fff"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_toolbar">
+
+            <com.qmuiteam.qmui.layout.QMUILinearLayout
+                android:id="@+id/qlyt_container"
+                android:layout_width="@dimen/x345"
+                android:layout_height="@dimen/y345"
+                android:background="#fff"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+                        android:id="@+id/iv_img"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:qmui_border_width="0dp"
+                        app:qmui_corner_radius="@dimen/x5"></com.qmuiteam.qmui.widget.QMUIRadiusImageView>
+
+                    <View
+                        android:id="@+id/v2"
+                        android:layout_width="@dimen/x165"
+                        android:layout_height="@dimen/y50"
+                        android:layout_marginRight="@dimen/x8"
+                        android:layout_marginBottom="@dimen/y18"
+                        android:background="@mipmap/bg_transition_money"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"></View>
+
+                    <TextView
+                        android:id="@+id/tv_yongjinbili"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y5"
+                        android:gravity="center"
+                        android:text="佣金比例: 2.91%"
+                        android:textColor="#ffd9764a"
+                        android:textSize="15sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/v2"
+                        app:layout_constraintRight_toRightOf="@+id/v2"
+                        app:layout_constraintTop_toTopOf="@+id/v2" />
+
+                    <TextView
+                        android:id="@+id/tv_yuguyongjin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="预估佣金: ￥3.80"
+                        android:textColor="#ff383b44"
+                        android:textSize="15sp"
+
+                        app:layout_constraintLeft_toLeftOf="@+id/v2"
+                        app:layout_constraintRight_toRightOf="@+id/v2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_yongjinbili" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y15"
+                android:text="Ｎnzes牛仔外套女初秋2019新款韩版宽松百搭复古港风短款上衣ins"
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="@+id/qlyt_container"
+                app:layout_constraintRight_toRightOf="@+id/qlyt_container"
+                app:layout_constraintTop_toBottomOf="@+id/qlyt_container" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y16"
+                android:text="价格:"
+                android:textColor="#808080"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"></TextView>
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x34"
+                android:layout_marginTop="@dimen/y16"
+                android:text="1222"
+                android:textColor="#D9764A"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"></TextView>
+
+            <TextView
+                android:id="@+id/tv_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x34"
+                android:layout_marginTop="@dimen/y36"
+                android:text="1222"
+                android:textColor="#808080"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y36"
+                android:text="店铺:"
+                android:textColor="#808080"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y56"
+                android:text="提示: 保存二维码进入手机淘宝扫码\n下单即可"
+                android:textColor="#808080"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"></TextView>
+
+            <ImageView
+                android:id="@+id/iv_qrcode"
+                android:layout_width="@dimen/x82"
+                android:layout_height="@dimen/y82"
+                android:layout_marginTop="@dimen/y15"
+                app:layout_constraintRight_toRightOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"></ImageView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="@dimen/x335"
+            android:layout_height="@dimen/y45"
+            android:layout_marginTop="@dimen/y25"
+            android:background="@drawable/bg_rect_383b44_23"
+            android:gravity="center"
+            android:text="分享给好友"
+            android:textColor="#E4D8C6"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clyt_container"></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -57,6 +57,9 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment i
 
     protected FragmentActivity _mActivity;
 
+    protected QMUITipDialog loadingDialog;
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +114,11 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment i
         mDelegate.onSaveInstanceState(outState);
     }
 
+    protected void dismissLoadingDialog() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+    }
 
     private void rxBusObservers() {
         rxObservable = RxBus.getInstance().toObserverable();

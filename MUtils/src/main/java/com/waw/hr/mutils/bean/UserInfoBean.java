@@ -6,12 +6,46 @@ public class UserInfoBean {
      * nick_name : 我是代码编写者
      * invitation_code : 4669905
      * money : 11111
+     *
+     *  "currentMonth": 1.4,
+     *     "previousMonth": 0.7,
+     *     "gender": 1
      */
 
     private String image;
     private String nick_name;
     private int invitation_code;
     private int money;
+
+    private double currentMonth;
+
+    private double previousMonth;
+
+    private int gender;
+
+    public double getCurrentMonth() {
+        return currentMonth;
+    }
+
+    public void setCurrentMonth(double currentMonth) {
+        this.currentMonth = currentMonth;
+    }
+
+    public double getPreviousMonth() {
+        return previousMonth;
+    }
+
+    public void setPreviousMonth(double previousMonth) {
+        this.previousMonth = previousMonth;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
 
     public String getImage() {
         return image;

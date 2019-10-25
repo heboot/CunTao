@@ -3,10 +3,31 @@ package com.zonghong.cuntao.fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.http.HttpClient;
+import com.waw.hr.mutils.DialogUtils;
+import com.waw.hr.mutils.LogUtil;
+import com.waw.hr.mutils.StringUtils;
+import com.waw.hr.mutils.base.BaseBean;
+import com.waw.hr.mutils.bean.CurlgetBean;
+import com.waw.hr.mutils.bean.IndexBean;
+import com.waw.hr.mutils.bean.UserInfoBean;
 import com.zonghong.cuntao.R;
+import com.zonghong.cuntao.activity.article.ArticleAddActivity;
+import com.zonghong.cuntao.adapter.NotiAdapter;
+import com.zonghong.cuntao.base.BaseActivity;
 import com.zonghong.cuntao.base.BaseFragment;
 import com.zonghong.cuntao.databinding.FragmentIndexBinding;
 import com.zonghong.cuntao.databinding.FragmentTransitionBinding;
+import com.zonghong.cuntao.http.HttpObserver;
+import com.zonghong.cuntao.service.UserService;
+import com.zonghong.cuntao.utils.ImageUtils;
+import com.zonghong.cuntao.utils.IntentUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class TransitionFragment extends BaseFragment<FragmentTransitionBinding> {
 
@@ -27,6 +48,7 @@ public class TransitionFragment extends BaseFragment<FragmentTransitionBinding> 
     public void initUI() {
         binding.includeToolbar.tvTitle.setText("一键转换");
         binding.includeToolbar.vBack.setVisibility(View.GONE);
+        loadingDialog  = DialogUtils.getLoadingDialog(_mActivity,"",false);
     }
 
     @Override
@@ -36,6 +58,65 @@ public class TransitionFragment extends BaseFragment<FragmentTransitionBinding> 
 
     @Override
     public void initListener() {
+        binding.tvCuntao.setOnClickListener(view -> {
+            transition(1);
+        });
+        binding.tvTbk.setOnClickListener(view -> {
+            transition(2);
+        });
+    }
+
+    @Override
+    public void onSupportVisible() {
+        super.onSupportVisible();
+        getInfo();
 
     }
+
+    private void transition(int type) {
+//        if (StringUtils.isEmpty(binding.etContent.getText())) {
+//            tipDialog = DialogUtils.getFailDialog(_mActivity, "请输入淘口令/商品链接", true);
+//            tipDialog.show();
+//            return;
+//        }
+
+        loadingDialog.show();
+
+        params = new HashMap<>();
+        params.put("type",type);
+        params.put("code","【裤子男士秋季休闲裤冬季修身潮流加绒长裤直筒裤男裤2019新款秋冬】https://c.tb.cn/h.eK6DYIz?sm=f5e7f7 嚸↑↓擊鏈バ接，再选择瀏覽嘂..咑閞ヽ；或椱ァ製这句话₴teO9YJVbk5J₴后咑閞淘灬寳");
+        HttpClient.Builder.getServer().curlget(UserService.getInstance().getToken(), params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<CurlgetBean>() {
+            @Override
+            public void onSuccess(BaseBean<CurlgetBean> baseBean) {
+                dismissLoadingDialog();
+                IntentUtils.intent2TransiionResultActivity(baseBean.getData());
+            }
+
+            @Override
+            public void onError(BaseBean<CurlgetBean> baseBean) {
+                dismissLoadingDialog();
+                tipDialog = DialogUtils.getFailDialog(_mActivity, baseBean.getMsg(), true);
+                tipDialog.show();
+            }
+        });
+    }
+
+    private void getInfo() {
+        params = new HashMap<>();
+        params.put("page", 2);
+        HttpClient.Builder.getServer().getExplain(params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<Map>() {
+            @Override
+            public void onSuccess(BaseBean<Map> baseBean) {
+                binding.tvTebie.setText(String.valueOf(baseBean.getData().get("explain")));
+            }
+
+            @Override
+            public void onError(BaseBean<Map> baseBean) {
+                tipDialog = DialogUtils.getFailDialog(_mActivity, baseBean.getMsg(), true);
+                tipDialog.show();
+            }
+        });
+    }
+
+
 }

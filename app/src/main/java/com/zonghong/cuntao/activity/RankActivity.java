@@ -29,9 +29,9 @@ public class RankActivity extends BaseActivity<ActivityRankBinding> {
 
     @Override
     public void initData() {
-        fragmentList.add(RankFragment.newInstance(OrderType.DAIFAHUO));
-        fragmentList.add(RankFragment.newInstance(OrderType.DAISHOUHUO));
-        fragmentList.add(RankFragment.newInstance(OrderType.FINISH));
+        fragmentList.add(RankFragment.newInstance(1));
+        fragmentList.add(RankFragment.newInstance(2));
+        fragmentList.add(RankFragment.newInstance(3));
         String[] titles = {"日榜", "周榜", "月榜"};
         binding.includeRankList.tab.setViewPager(binding.includeRankList.vpContainer, titles, this, fragmentList);
     }

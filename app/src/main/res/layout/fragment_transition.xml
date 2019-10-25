@@ -34,17 +34,21 @@
                     android:layout_height="@dimen/y140"
                     android:layout_marginTop="@dimen/y20"
                     android:background="@drawable/bg_rect_white_10"
+                    android:gravity="left"
+                    android:hint="请输入淘口令/商品链接"
+                    android:padding="@dimen/x5"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></EditText>
 
                 <TextView
-                    android:gravity="center"
-                    android:text="提交"
+                    android:id="@+id/tv_cuntao"
                     android:layout_width="@dimen/x345"
                     android:layout_height="@dimen/y55"
                     android:layout_marginTop="@dimen/y31"
                     android:background="@drawable/bg_rect_383b44_28"
+                    android:gravity="center"
+                    android:text="确定(村淘)"
                     android:textColor="#E4D8C6"
                     android:textSize="18sp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -52,21 +56,36 @@
                     app:layout_constraintTop_toBottomOf="@+id/et_content"></TextView>
 
                 <TextView
+                    android:id="@+id/tv_tbk"
+                    android:layout_width="@dimen/x345"
+                    android:layout_height="@dimen/y55"
+                    android:layout_marginTop="@dimen/y12"
+                    android:background="@drawable/bg_rect_383b44_28"
+                    android:gravity="center"
+                    android:text="确定(淘宝客)"
+                    android:textColor="#E4D8C6"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_cuntao"></TextView>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x16"
-                    android:layout_marginTop="@dimen/y126"
+                    android:layout_marginTop="@dimen/y26"
                     android:text="特别说明"
                     android:textColor="#ff000000"
                     android:textSize="18sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_content" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tbk" />
 
                 <TextView
+                    android:id="@+id/tv_tebie"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x16"
-                    android:layout_marginTop="@dimen/y160"
+                    android:layout_marginTop="@dimen/y60"
                     android:layout_marginRight="@dimen/x16"
                     android:text="1.绑定好友服务站二维码(请在底部查看二维码)，注意:所有做单的账号都要绑定，否则会丢单。\n\n2.使用一个正确的村淘地址作为收货地址，收货人和手机号随意设计费那就好高科技十多年刚开始。\n\n
 
@@ -78,7 +97,7 @@
                     android:textSize="14sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_content" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tbk" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

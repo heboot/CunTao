@@ -1,25 +1,42 @@
 package com.zonghong.cuntao.activity.article;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.http.HttpClient;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
 import com.waw.hr.mutils.DialogUtils;
+import com.waw.hr.mutils.StringUtils;
+import com.waw.hr.mutils.base.BaseBean;
 import com.zonghong.cuntao.R;
 import com.zonghong.cuntao.activity.SettingActivity;
 import com.zonghong.cuntao.adapter.PublishContentImageAdapter;
 import com.zonghong.cuntao.base.BaseActivity;
 import com.zonghong.cuntao.databinding.ActivityPublishContentBinding;
+import com.zonghong.cuntao.http.HttpObserver;
+import com.zonghong.cuntao.service.UserService;
+import com.zonghong.cuntao.utils.ImageUtils;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class ArticleAddActivity extends BaseActivity<ActivityPublishContentBinding> {
 
@@ -42,13 +59,15 @@ public class ArticleAddActivity extends BaseActivity<ActivityPublishContentBindi
     public void initUI() {
         setBackVisibility(View.VISIBLE);
         binding.tvTitle.setText("发表");
-        binding.rvList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        binding.rvList.setLayoutManager(new GridLayoutManager(this, 3));
+        loadingDialog = DialogUtils.getLoadingDialog(this,"",false);
     }
 
     @Override
     public void initData() {
         images.add("localadd");
-        publishContentImageAdapter = new PublishContentImageAdapter(images,new WeakReference<>(this));
+        publishContentImageAdapter = new PublishContentImageAdapter(images, new WeakReference<>(this));
+        binding.rvList.setAdapter(publishContentImageAdapter);
     }
 
     public void addImage() {
@@ -77,7 +96,10 @@ public class ArticleAddActivity extends BaseActivity<ActivityPublishContentBindi
 
     @Override
     public void initListener() {
-
+        binding.tvRight.setOnClickListener(view->{
+            getSelectNum();
+            uploadAvatar();
+        });
     }
 
     @Override
@@ -98,14 +120,70 @@ public class ArticleAddActivity extends BaseActivity<ActivityPublishContentBindi
             } else {
                 images.add(0, url);
             }
-
+            publishContentImageAdapter.notifyDataSetChanged();
         }
     }
 
-    public void delImage(String item){
+
+    private void uploadAvatar() {
+
+        if (StringUtils.isEmpty(binding.etContent.getText())) {
+            tipDialog = DialogUtils.getFailDialog(this, "请输入内容", true);
+            tipDialog.show();
+            return;
+        }
+
+        if (selectNum == 9) {
+            tipDialog = DialogUtils.getFailDialog(this, "至少选择一张图片", true);
+            tipDialog.show();
+            return;
+        }
+
+
+        loadingDialog.show();
+
+        List<MultipartBody.Part> uploadImages = new ArrayList<>();
+
+        for (String s : publishContentImageAdapter.getData()) {
+            if (!s.equals("localadd")) {
+                File file = new File(s);
+                RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpg"), file);
+                MultipartBody.Part body = MultipartBody.Part.createFormData("image[]", file.getName(), requestFile);
+                uploadImages.add(body);
+            }
+        }
+
+
+
+        MultipartBody.Part contentBody = MultipartBody.Part.createFormData("content",  "123123");
+
+        HttpClient.Builder.getServer().articleAdd(UserService.getInstance().getToken(), contentBody, uploadImages).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<Object>() {
+            @Override
+            public void onSuccess(BaseBean<Object> baseBean) {
+                dismissLoadingDialog();
+                tipDialog = DialogUtils.getSuclDialog(ArticleAddActivity.this, baseBean.getMsg(), true);
+                tipDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        finish();
+                    }
+                });
+                tipDialog.show();
+            }
+
+            @Override
+            public void onError(BaseBean<Object> baseBean) {
+                dismissLoadingDialog();
+                tipDialog = DialogUtils.getFailDialog(ArticleAddActivity.this, baseBean.getMsg(), true);
+                tipDialog.show();
+            }
+        });
+    }
+
+    public void delImage(String item) {
         images.remove(item);
-        if(images.indexOf("localadd") < 0){
-            images.add(images.size(),"localadd");
+        if (images.indexOf("localadd") < 0) {
+            images.add(images.size(), "localadd");
         }
         publishContentImageAdapter.notifyDataSetChanged();
     }

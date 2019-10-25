@@ -7,10 +7,11 @@
         android:layout_marginTop="@dimen/y8">
 
         <ImageView
+            android:layout_marginLeft="@dimen/x15"
             android:id="@+id/iv_img"
             android:layout_width="@dimen/x143"
             android:layout_height="@dimen/y83"
-            android:background="@color/qmui_config_color_red"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
@@ -30,16 +31,16 @@
             app:layout_constraintTop_toTopOf="@+id/iv_img" />
 
         <TextView
+            android:id="@+id/tv_brower"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
-            android:text="浏览量:581"
             android:textColor="#ff808080"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_img"
             app:layout_constraintLeft_toLeftOf="@+id/tv_title" />
 
         <TextView
+            android:layout_marginRight="@dimen/x16"
             android:id="@+id/tv_del"
             android:layout_width="@dimen/x60"
             android:layout_height="@dimen/y30"

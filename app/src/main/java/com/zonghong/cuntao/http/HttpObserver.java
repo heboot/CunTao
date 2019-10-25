@@ -60,6 +60,7 @@ public abstract class HttpObserver<T> implements Observer<BaseBean<T>> {
 
     @Override
     public void onError(Throwable e) {
+        e.printStackTrace();
     }
 
     @Override

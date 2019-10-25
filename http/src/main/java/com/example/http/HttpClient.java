@@ -2,8 +2,13 @@ package com.example.http;
 
 
 import com.waw.hr.mutils.base.BaseBean;
+import com.waw.hr.mutils.bean.ArticleIndexBean;
 import com.waw.hr.mutils.bean.BankListBean;
+import com.waw.hr.mutils.bean.CashLogModel;
+import com.waw.hr.mutils.bean.CurlgetBean;
+import com.waw.hr.mutils.bean.IndexBean;
 import com.waw.hr.mutils.bean.LoginBean;
+import com.waw.hr.mutils.bean.RankListBean;
 import com.waw.hr.mutils.bean.UserInfoBean;
 
 import java.util.List;
@@ -18,6 +23,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /**
@@ -95,6 +101,44 @@ public interface HttpClient {
     @FormUrlEncoded
     @POST("accountAdd")
     Observable<BaseBean<Object>> accountAdd(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+
+    @GET("articleIndex")
+    Observable<BaseBean<ArticleIndexBean>> articleIndex(@Header("token") String token, @QueryMap Map<String, Object> params);
+
+
+    @FormUrlEncoded
+    @POST("withdrawIndex")
+    Observable<BaseBean<List<CashLogModel>>> withdrawIndex(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @GET("articleMy")
+    Observable<BaseBean<ArticleIndexBean>> articleMy(@Header("token") String token, @QueryMap Map<String, Object> params);
+
+    @Multipart
+    @POST("articleAdd")
+    Observable<BaseBean<Object>> articleAdd(@Header("token") String token, @Part MultipartBody.Part params, @Part List<MultipartBody.Part> part);
+
+    @GET("articleDel")
+    Observable<BaseBean<Object>> articleDel(@Header("token") String token, @QueryMap Map<String, Object> params);
+
+
+    @FormUrlEncoded
+    @POST("curlget")
+    Observable<BaseBean<CurlgetBean>> curlget(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @GET("getExplain")
+    Observable<BaseBean<Map>> getExplain(@QueryMap Map<String, Object> params);
+
+    @FormUrlEncoded
+    @POST("moneyWithdrawDeposit")
+    Observable<BaseBean<Object>> moneyWithdrawDeposit(@Header("token") String token, @FieldMap Map<String, Object> params);
+
+    @GET("home")
+    Observable<BaseBean<IndexBean>> homea(@Header("token") String token, @Query("data_type") String type);
+
+
+    @GET("commission")
+    Observable<BaseBean<List<RankListBean>>> commission(@Header("token") String token, @Query("data_type") int type);
 //    @GET("type/read")
 //    Observable<BaseBean<List<WordTypeBean>>> read(@QueryMap Map<String, Object> params);
 //
