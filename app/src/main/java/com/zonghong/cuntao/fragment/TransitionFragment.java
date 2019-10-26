@@ -74,17 +74,17 @@ public class TransitionFragment extends BaseFragment<FragmentTransitionBinding> 
     }
 
     private void transition(int type) {
-//        if (StringUtils.isEmpty(binding.etContent.getText())) {
-//            tipDialog = DialogUtils.getFailDialog(_mActivity, "请输入淘口令/商品链接", true);
-//            tipDialog.show();
-//            return;
-//        }
+        if (StringUtils.isEmpty(binding.etContent.getText())) {
+            tipDialog = DialogUtils.getFailDialog(_mActivity, "请输入淘口令/商品链接", true);
+            tipDialog.show();
+            return;
+        }
 
         loadingDialog.show();
 
         params = new HashMap<>();
         params.put("type",type);
-        params.put("code","【裤子男士秋季休闲裤冬季修身潮流加绒长裤直筒裤男裤2019新款秋冬】https://c.tb.cn/h.eK6DYIz?sm=f5e7f7 嚸↑↓擊鏈バ接，再选择瀏覽嘂..咑閞ヽ；或椱ァ製这句话₴teO9YJVbk5J₴后咑閞淘灬寳");
+        params.put("code",binding.etContent.getText().toString());
         HttpClient.Builder.getServer().curlget(UserService.getInstance().getToken(), params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<CurlgetBean>() {
             @Override
             public void onSuccess(BaseBean<CurlgetBean> baseBean) {
