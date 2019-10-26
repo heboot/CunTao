@@ -6,10 +6,13 @@ import android.view.View;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.waw.hr.mutils.MStatusBarUtils;
+import com.waw.hr.mutils.event.UserEvent;
 import com.waw.hr.mutils.rxbus.RxBus;
 import com.zonghong.cuntao.R;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +63,7 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentAc
         super.onCreate(savedInstanceState);
         mDelegate.onCreate(savedInstanceState);
         params = new HashMap<>();
-
+        EventBus.getDefault().register(this);
         QMUIStatusBarHelper.translucent(this);
         MStatusBarUtils.setActivityLightMode(this);
         initContentView();
@@ -211,4 +214,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends FragmentAc
     public void onBackPressedSupport() {
         mDelegate.onBackPressedSupport();
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(UserEvent.LOGOUT_EVENT event) {
+        finish();}
 }

@@ -2,6 +2,8 @@ package com.zonghong.cuntao;
 
 import android.view.View;
 
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
+import com.waw.hr.mutils.MStatusBarUtils;
 import com.zonghong.cuntao.base.BaseActivity;
 import com.zonghong.cuntao.databinding.ActivityMainBinding;
 import com.zonghong.cuntao.fragment.CommunityFragment;
@@ -34,7 +36,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     public void initUI() {
         setBackVisibility(View.GONE);
-        mDelegate.loadMultipleRootFragment(binding.flytContainer.getId(), 0, indexFragment, transitionFragment, communityFragment, orderFragment,myFragment);
+        mDelegate.loadMultipleRootFragment(binding.flytContainer.getId(), 0, indexFragment, transitionFragment, communityFragment, orderFragment, myFragment);
         currentFragment = indexFragment;
     }
 
@@ -46,6 +48,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     public void initListener() {
         binding.llytIndex.setOnClickListener(view -> {
+
+
             mDelegate.showHideFragment(indexFragment, currentFragment);
             currentFragment = indexFragment;
             binding.ivIndex.setSelected(true);
@@ -55,6 +59,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             binding.ivMy.setSelected(false);
         });
         binding.llytTransition.setOnClickListener(view -> {
+
+
             mDelegate.showHideFragment(transitionFragment, currentFragment);
             currentFragment = transitionFragment;
             binding.ivIndex.setSelected(false);
@@ -64,6 +70,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             binding.ivMy.setSelected(false);
         });
         binding.llytCommunity.setOnClickListener(view -> {
+
+
             mDelegate.showHideFragment(communityFragment, currentFragment);
             currentFragment = communityFragment;
             binding.ivIndex.setSelected(false);
@@ -73,6 +81,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             binding.ivMy.setSelected(false);
         });
         binding.llytOrder.setOnClickListener(view -> {
+
+
             mDelegate.showHideFragment(orderFragment, currentFragment);
             currentFragment = orderFragment;
             binding.ivIndex.setSelected(false);
@@ -82,6 +92,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             binding.ivMy.setSelected(false);
         });
         binding.llytMy.setOnClickListener(view -> {
+
+
             mDelegate.showHideFragment(myFragment, currentFragment);
             currentFragment = myFragment;
             binding.ivIndex.setSelected(false);

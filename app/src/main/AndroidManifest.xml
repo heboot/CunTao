@@ -51,7 +51,7 @@
 
         <activity android:name=".activity.user.AlterPhoneActivity"></activity>
 
-        <activity android:name=".activity.OrderDetailActivity"></activity>
+        <activity android:name=".activity.order.OrderDetailActivity"></activity>
 
         <activity android:name=".MainActivity"></activity>
 
@@ -83,7 +83,9 @@
 
         <activity android:name=".activity.user.CashLogActivity"></activity>
 
-        <activity android:name=".activity.MyOrderActivity"></activity>
+        <activity android:name=".activity.order.MyOrderActivity"></activity>
+
+        <activity android:name=".activity.common.ImagePreviewActivity"></activity>
 
     </application>
 

@@ -4,9 +4,12 @@ import com.waw.hr.mutils.MKey;
 import com.waw.hr.mutils.PreferencesUtils;
 import com.waw.hr.mutils.StringUtils;
 import com.waw.hr.mutils.bean.UserInfoBean;
+import com.waw.hr.mutils.event.UserEvent;
 import com.zonghong.cuntao.MAPP;
 import com.zonghong.cuntao.activity.loginregister.LoginActivity;
 import com.zonghong.cuntao.utils.IntentUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class UserService {
 
@@ -30,7 +33,7 @@ public class UserService {
 
 
     public void logout() {
-//        EventBus.getDefault().post(new UserEvent.LOGOUT_EVENT());
+        EventBus.getDefault().post(new UserEvent.LOGOUT_EVENT());
 //        setUserId("");
         setRy_token("");
         setToken("");

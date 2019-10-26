@@ -4,7 +4,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#383B44"
+        android:background="#ededed"
         >
 
         <LinearLayout
@@ -482,7 +482,7 @@
                     <View
                         android:id="@+id/v6"
                         android:layout_width="0dp"
-                        android:layout_height="@dimen/y111"
+                        android:layout_height="@dimen/y55"
                         android:layout_marginTop="@dimen/y8"
                         android:background="#ffffff"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -525,6 +525,7 @@
 
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_my_fans"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/y55"
@@ -542,6 +543,7 @@
                         app:layout_constraintTop_toTopOf="@+id/v6" />
 
                     <ImageView
+                        android:visibility="gone"
                         android:layout_width="@dimen/x28"
                         android:layout_height="@dimen/y28"
                         android:layout_marginLeft="@dimen/x15"

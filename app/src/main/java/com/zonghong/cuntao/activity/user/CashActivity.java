@@ -10,6 +10,7 @@ import com.waw.hr.mutils.StringUtils;
 import com.waw.hr.mutils.base.BaseBean;
 import com.waw.hr.mutils.bean.BankListBean;
 import com.waw.hr.mutils.bean.CashLogModel;
+import com.waw.hr.mutils.event.UserEvent;
 import com.zonghong.cuntao.R;
 import com.zonghong.cuntao.base.BaseActivity;
 import com.zonghong.cuntao.databinding.ActivityCashBinding;
@@ -17,6 +18,10 @@ import com.zonghong.cuntao.http.HttpObserver;
 import com.zonghong.cuntao.service.UserService;
 import com.zonghong.cuntao.utils.IntentUtils;
 import com.zonghong.cuntao.utils.NumberUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +45,7 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
 
     @Override
     public void initUI() {
+
         setBackVisibility(View.VISIBLE);
         binding.tvTitle.setText("提现");
         binding.tvCashAlipay.setBackgroundColor(Color.parseColor("#383b44"));
@@ -70,8 +76,6 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
             binding.etMoney.setText(NumberUtils.formatDouble(UserService.getInstance().getUserInfoBean().getMoney()));
         });
 
-
-
     }
 
     private void checkAlipay() {
@@ -85,6 +89,9 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
             binding.tvTitle.setVisibility(View.GONE);
             binding.tvBind.setText("绑定支付宝");
             binding.tvBind.setVisibility(View.VISIBLE);
+            binding.tvBind.setOnClickListener(view -> {
+                IntentUtils.doIntent(BindAlipayActivity.class);
+            });
         } else {
             binding.vIcon.setBackgroundResource(R.mipmap.icon_alipay);
             binding.tvBind.setVisibility(View.GONE);
@@ -107,7 +114,7 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
             binding.tvBind.setText("绑定银行卡");
             binding.tvBind.setVisibility(View.VISIBLE);
             binding.tvBind.setOnClickListener(view -> {
-                IntentUtils.doIntent(BindAlipayActivity.class);
+                IntentUtils.intent2MyBankActivity(true);
             });
         } else {
             binding.vIcon.setBackgroundResource(R.mipmap.icon_bank);
@@ -115,8 +122,8 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
             binding.tvAccount.setVisibility(View.GONE);
             binding.tvTitle.setVisibility(View.VISIBLE);
             binding.tvTitle.setText(bankListBean.getAccount_name() + "(" + bankListBean.getPay_account() + ")");
-            binding.tvBind.setOnClickListener(view -> {
-                IntentUtils.doIntent(MyBankActivity.class);
+            binding.vContent.setOnClickListener((v)->{
+                IntentUtils.intent2MyBankActivity(true);
             });
         }
     }
@@ -168,7 +175,7 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
 
 
         params = new HashMap<>();
-        params.put("moeny", binding.etMoney.getText().toString());
+        params.put("money", binding.etMoney.getText().toString());
         params.put("account", cashType == 1 ? aliId : bankListBean.getID());
         HttpClient.Builder.getServer().moneyWithdrawDeposit(UserService.getInstance().getToken(), params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<Object>() {
             @Override
@@ -213,5 +220,10 @@ public class CashActivity extends BaseActivity<ActivityCashBinding> {
 //                tipDialog.show();
             }
         });
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(UserEvent.CHOOSE_BANK_EVENT event) {
+        bankListBean = event.getBankListBean();
     }
 }

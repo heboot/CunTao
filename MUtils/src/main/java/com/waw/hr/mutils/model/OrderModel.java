@@ -1,6 +1,8 @@
 package com.waw.hr.mutils.model;
 
-public class OrderModel {
+import java.io.Serializable;
+
+public class OrderModel implements Serializable {
     /**
      * image : https://www.dior.cn/beauty/version-5.1563986503609/resize-image/ep/870/580/90/0/%252FY0091008%252FY0091008_C009173999_E01_ZHC_CN.jpg
      * title : Dior迪奥 烈艳蓝金唇膏 热卖色号

@@ -1,4 +1,4 @@
-package com.zonghong.cuntao.activity;
+package com.zonghong.cuntao.activity.order;
 
 import android.view.View;
 
@@ -25,6 +25,7 @@ public class MyOrderActivity extends BaseActivity<ActivityMyOrderBinding> {
     @Override
     public void initUI() {
         setBackVisibility(View.VISIBLE);
+        binding.includeToolbar.tvTitle.setText("我的订单");
     }
 
     @Override

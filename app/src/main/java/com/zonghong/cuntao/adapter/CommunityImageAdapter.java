@@ -12,6 +12,7 @@ import com.zonghong.cuntao.activity.article.ArticleAddActivity;
 import com.zonghong.cuntao.databinding.ItemCommunityImageBinding;
 import com.zonghong.cuntao.databinding.ItemPublishImgBinding;
 import com.zonghong.cuntao.utils.ImageUtils;
+import com.zonghong.cuntao.utils.IntentUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -29,5 +30,9 @@ public class CommunityImageAdapter extends BaseQuickAdapter<String, BaseViewHold
         ItemCommunityImageBinding binding = DataBindingUtil.bind(helper.itemView);
 
         ImageUtils.showImage(item, binding.ivImg);
+
+        binding.getRoot().setOnClickListener(view -> {
+            IntentUtils.intent2ImagePreviewActivity(getData(),helper.getAdapterPosition());
+        });
     }
 }

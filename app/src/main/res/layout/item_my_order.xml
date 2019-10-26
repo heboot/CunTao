@@ -3,6 +3,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x15"
+        android:layout_marginRight="@dimen/x15"
+        android:layout_marginTop="@dimen/y7"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rect_white_8"
         android:paddingBottom="@dimen/y12">

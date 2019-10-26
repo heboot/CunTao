@@ -22,7 +22,7 @@ public class MMMV extends LinearLayout implements QMUIPullRefreshLayout.IRefresh
         View view = LayoutInflater.from(getContext()).inflate(R.layout.view_refresh, this);
         view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300));
         ProgressBar pb = view.findViewById(R.id.pb);
-        ColorStateList colorStateList = ColorStateList.valueOf(0xffF8D347);
+        ColorStateList colorStateList = ColorStateList.valueOf(0xff383B44);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             pb.setIndeterminateTintList(colorStateList);
             pb.setIndeterminateTintMode(PorterDuff.Mode.SRC_ATOP);

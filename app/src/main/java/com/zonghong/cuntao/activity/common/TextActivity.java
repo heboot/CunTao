@@ -29,6 +29,7 @@ public class TextActivity extends BaseActivity<ActivityTextBinding> {
     @Override
     public void initUI() {
         setBackVisibility(View.VISIBLE);
+        binding.includeToolbar.tvTitle.setText("修改昵称");
 
     }
 

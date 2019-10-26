@@ -6,11 +6,17 @@ import com.waw.hr.mutils.MKey;
 import com.waw.hr.mutils.bean.CashLogModel;
 import com.waw.hr.mutils.bean.CurlgetBean;
 import com.zonghong.cuntao.MAPP;
+import com.zonghong.cuntao.activity.RankActivity;
+import com.zonghong.cuntao.activity.common.ImagePreviewActivity;
 import com.zonghong.cuntao.activity.user.CashActivity;
 import com.zonghong.cuntao.activity.TransitionResultActivity;
 import com.zonghong.cuntao.activity.common.TextActivity;
 import com.zonghong.cuntao.activity.user.BindAlipayActivity;
 import com.zonghong.cuntao.activity.user.CashStatusActivity;
+import com.zonghong.cuntao.activity.user.MyBankActivity;
+
+import java.io.Serializable;
+import java.util.List;
 
 public class IntentUtils {
 
@@ -47,10 +53,28 @@ public class IntentUtils {
         MAPP.mapp.getCurrentActivity().startActivity(intent);
     }
 
+    public static void intent2MyBankActivity(boolean choose){
+        intent = new Intent(MAPP.mapp.getCurrentActivity(), MyBankActivity.class);
+        intent.putExtra(MKey.TYPE,choose);
+        MAPP.mapp.getCurrentActivity().startActivity(intent);
+    }
+
     public static void intent2CashStatusActivity(CashLogModel money){
         intent = new Intent(MAPP.mapp.getCurrentActivity(), CashStatusActivity.class);
         intent.putExtra(MKey.DATA,money);
         MAPP.mapp.getCurrentActivity().startActivity(intent);
     }
 
+    public static void intent2RankActivity(int type){
+        intent = new Intent(MAPP.mapp.getCurrentActivity(), RankActivity.class);
+        intent.putExtra(MKey.TYPE,type);
+        MAPP.mapp.getCurrentActivity().startActivity(intent);
+    }
+
+    public static void intent2ImagePreviewActivity(List<String> images,int position){
+        intent = new Intent(MAPP.mapp.getCurrentActivity(), ImagePreviewActivity.class);
+        intent.putExtra(MKey.DATA, (Serializable) images);
+        intent.putExtra("position", position);
+        MAPP.mapp.getCurrentActivity().startActivity(intent);
+    }
 }

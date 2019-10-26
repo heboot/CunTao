@@ -94,6 +94,13 @@ public interface HttpClient {
     @POST("accountDel")
     Observable<BaseBean<Object>> accountDel(@Header("token") String token, @FieldMap Map<String, Object> params);
 
+
+    @GET("orderDel")
+    Observable<BaseBean<Object>> orderDel(@Header("token") String token, @QueryMap Map<String, Object> params);
+
+    @GET("orderConfirm")
+    Observable<BaseBean<Object>> orderConfirm(@Header("token") String token, @QueryMap Map<String, Object> params);
+
     @FormUrlEncoded
     @POST("accountList")
     Observable<BaseBean<List<BankListBean>>> accountList(@Header("token") String token, @FieldMap Map<String, Object> params);
@@ -134,7 +141,6 @@ public interface HttpClient {
     Observable<BaseBean<Object>> moneyWithdrawDeposit(@Header("token") String token, @FieldMap Map<String, Object> params);
 
 
-
     @FormUrlEncoded
     @POST("orderIncrease")
     Observable<BaseBean<Object>> orderIncrease(@Header("token") String token, @FieldMap Map<String, Object> params);
@@ -142,7 +148,6 @@ public interface HttpClient {
     @FormUrlEncoded
     @POST("orderList")
     Observable<BaseBean<List<OrderModel>>> orderList(@Header("token") String token, @FieldMap Map<String, Object> params);
-
 
 
     @GET("home")

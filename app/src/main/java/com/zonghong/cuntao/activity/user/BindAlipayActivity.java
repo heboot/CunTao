@@ -46,8 +46,11 @@ public class BindAlipayActivity extends BaseActivity<ActivityBindAlipayBinding> 
 
     @Override
     public void initData() {
-        account = (String) getIntent().getExtras().get(MKey.ACCOUNT);
-        name = (String) getIntent().getExtras().get(MKey.NAME);
+        if(getIntent() != null && getIntent().getExtras() != null){
+            account = (String) getIntent().getExtras().get(MKey.ACCOUNT);
+            name = (String) getIntent().getExtras().get(MKey.NAME);
+        }
+
 
         if(!StringUtils.isEmpty(account)){
             binding.etAlipay.setText(account);

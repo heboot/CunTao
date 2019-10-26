@@ -134,7 +134,8 @@ public class IndexFragment extends BaseFragment<FragmentIndexBinding> {
                 binding.banner.setImages(baseBean.getData().getSideShow());
                 binding.banner.start();
                 binding.tvTebie.setText(baseBean.getData().getExplain());
-
+                binding.noti.setList(baseBean.getData().getNotice());
+                binding.noti.startScroll();
 
             }
 

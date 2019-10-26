@@ -7,6 +7,7 @@ import com.waw.hr.mutils.MCode;
 import com.waw.hr.mutils.NetWorkUtils;
 import com.waw.hr.mutils.base.BaseBean;
 import com.zonghong.cuntao.MAPP;
+import com.zonghong.cuntao.service.UserService;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -40,7 +41,7 @@ public abstract class HttpObserver<T> implements Observer<BaseBean<T>> {
         if (baseBean.getCode() != MCode.HTTP_CODE.SUCCESS || baseBean == null) {
             if (baseBean.getCode() == MCode.HTTP_CODE.TOKEN_ERROR) {
 //                IntentUtils.doIntent(LoginActivity.class);
-//                UserService.getInstance().logout();
+                UserService.getInstance().logout();
             }
             this.disposable.dispose();
             try {

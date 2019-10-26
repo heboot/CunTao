@@ -8,6 +8,7 @@ import com.example.http.HttpClient;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import com.waw.hr.mutils.DialogUtils;
+import com.waw.hr.mutils.MKey;
 import com.waw.hr.mutils.base.BaseBean;
 import com.waw.hr.mutils.bean.BankListBean;
 import com.zonghong.cuntao.R;
@@ -31,6 +32,8 @@ public class MyBankActivity extends BaseActivity<ActivityMyBankBinding> {
 
     private QMUIDialog qmuiDialog;
 
+    private boolean choose = false;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_my_bank;
@@ -47,6 +50,9 @@ public class MyBankActivity extends BaseActivity<ActivityMyBankBinding> {
 
     @Override
     public void initData() {
+        if(getIntent() !=null && getIntent().getExtras() != null){
+            choose = (boolean) getIntent().getExtras().get(MKey.TYPE);
+        }
         bankList();
     }
 
@@ -118,7 +124,7 @@ public class MyBankActivity extends BaseActivity<ActivityMyBankBinding> {
                 loadingDialog.dismiss();
                 if (myBankAdapter == null) {
                     if (baseBean.getData() != null) {
-                        myBankAdapter = new MyBankAdapter(baseBean.getData(), new WeakReference<>(MyBankActivity.this));
+                        myBankAdapter = new MyBankAdapter(baseBean.getData(), new WeakReference<>(MyBankActivity.this),choose);
                         binding.rvList.setAdapter(myBankAdapter);
                     }
                 } else {
