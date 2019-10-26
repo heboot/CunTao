@@ -7,11 +7,11 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:scaleType="centerCrop"
             android:id="@+id/iv_img"
             android:layout_width="@dimen/x70"
             android:layout_height="@dimen/y70"
             android:layout_marginLeft="@dimen/x15"
-            android:background="@color/qmui_config_color_red"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x14"
             android:layout_marginRight="@dimen/x90"
-            android:text="Dior迪奥 烈艳蓝金唇膏 热卖色号 3.5克显白金属限量#888#772..."
+            android:text=""
             android:textColor="#ff333333"
             android:textSize="12sp"
             app:layout_constraintLeft_toRightOf="@+id/iv_img"
@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/y7"
             android:text="#999"
+            android:visibility="gone"
             android:textColor="#ff999999"
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="@+id/tv_title"

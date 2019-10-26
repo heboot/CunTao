@@ -62,6 +62,9 @@ public interface HttpClient {
     @POST("changePwd")
     Observable<BaseBean<Object>> changePwd(@FieldMap Map<String, Object> params);
 
+    @FormUrlEncoded
+    @POST("orderDetail")
+    Observable<BaseBean<OrderModel>> orderDetail(@Header("token") String token,@FieldMap Map<String, Object> params);
 
     @POST("profileCenter")
     Observable<BaseBean<UserInfoBean>> profileCenter(@Header("token") String token);

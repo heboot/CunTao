@@ -74,7 +74,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/y15"
-            android:text="河南省焦作市山阳区世纪路2001号河南理工大学新校区"
             android:textColor="#ff808080"
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="@+id/tv_name"
@@ -158,6 +157,7 @@
             app:layout_constraintTop_toBottomOf="@+id/include_goods" />
 
         <TextView
+            android:id="@+id/tv_total_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/y93"

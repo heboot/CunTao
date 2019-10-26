@@ -13,6 +13,7 @@ import com.zonghong.cuntao.R;
 import com.zonghong.cuntao.databinding.ItemMyOrderBinding;
 import com.zonghong.cuntao.fragment.MyOrderFragment;
 import com.zonghong.cuntao.utils.ImageUtils;
+import com.zonghong.cuntao.utils.IntentUtils;
 import com.zonghong.cuntao.utils.NumberUtils;
 
 import java.lang.ref.WeakReference;
@@ -65,6 +66,9 @@ public class MyOrderListAdapter extends BaseQuickAdapter<OrderModel, BaseViewHol
             weakReference.get().showConfirmDialog(item);
         });
 
+        binding.getRoot().setOnClickListener(view->{
+            IntentUtils.intent2OrderDetailActivity(item.getOrder_id());
+        });
 
     }
 }

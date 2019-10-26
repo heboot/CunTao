@@ -1,7 +1,11 @@
 package com.zonghong.cuntao.utils;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,9 +15,11 @@ import com.waw.hr.mutils.ToastUtils;
 import com.zonghong.cuntao.MAPP;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ImageUtils {
 
@@ -50,7 +56,7 @@ public class ImageUtils {
     //保存图片
     public static String saveBitmap(Bitmap mBitmap) {
         if (mBitmap == null) {
-            ToastUtils.show(MAPP.mapp,"处理图片失败，请稍后重试");
+            ToastUtils.show(MAPP.mapp, "处理图片失败，请稍后重试");
             return null;
         }
         FileOutputStream fos = null;
@@ -75,6 +81,46 @@ public class ImageUtils {
             }
         }
         return filePath;
+    }
+
+    /**
+     * 保存图片到图库
+     *
+     * @param bmp
+     */
+    public static void saveImageToGallery(File oldFile) {
+
+        String fileName =Environment.getExternalStoragePublicDirectory("cuntao").toString() + "/"+System.currentTimeMillis() + ".jpg";
+
+        File file = new File(fileName);
+        if (!file.exists()) {
+
+        }
+        try {
+            InputStream inStream = new FileInputStream(oldFile);  //读入原文件
+            FileOutputStream fos = new FileOutputStream(file);
+            int byteread = 0;
+            byte[] buffer = new byte[1444];
+//               int  length;
+            while ((byteread = inStream.read(buffer)) != -1) {
+//                   bytesum  +=  byteread;  //字节数  文件大小
+//                   System.out.println(bytesum);
+                fos.write(buffer, 0, byteread);
+            }
+            inStream.close();
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //发送广播通知系统图库刷新数据
+        Uri uri = Uri.fromFile(file);
+        MAPP.mapp.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
+
+
     }
 
     public static Bitmap getViewBp(View v) {

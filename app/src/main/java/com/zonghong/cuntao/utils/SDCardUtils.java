@@ -38,7 +38,7 @@ public class SDCardUtils {
     }
 
 
-//
+    //
     public static String getRootPathPrivatePic() {
         File file = new File(MAPP.mapp.getExternalFilesDir(MValue.SD_PATH_ROOT), MValue.SD_PATH_PIC);
         if (!file.mkdirs()) {
@@ -47,6 +47,13 @@ public class SDCardUtils {
         return file.getPath();
     }
 
+    public static String getRootPathPublicPic() {
+        File file = new File(Environment.getExternalStoragePublicDirectory(MValue.SD_PATH_ROOT), MValue.SD_PATH_PIC);
+        if (!file.mkdirs()) {
+            file.mkdir();
+        }
+        return file.getPath();
+    }
 
 
     /**

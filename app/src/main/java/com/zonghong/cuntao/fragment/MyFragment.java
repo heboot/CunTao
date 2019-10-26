@@ -97,6 +97,9 @@ public class MyFragment extends BaseFragment<FragmentMyBinding> {
         binding.vSetting.setOnClickListener(view -> {
             IntentUtils.doIntent(SettingActivity.class);
         });
+        binding.v1.setOnClickListener(view->{
+            IntentUtils.doIntent(SettingActivity.class);
+        });
         binding.tvMyWenzhang.setOnClickListener(view -> {
             IntentUtils.doIntent(MyAtricleActivity.class);
         });

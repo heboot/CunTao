@@ -10,10 +10,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 
 import com.waw.hr.mutils.MKey;
+import com.waw.hr.mutils.ToastUtils;
+import com.zonghong.cuntao.MAPP;
 import com.zonghong.cuntao.R;
 import com.zonghong.cuntao.databinding.LayoutShareDialogBinding;
 import com.zonghong.cuntao.utils.ImageUtils;
 import com.zonghong.cuntao.utils.TextUtils;
+
+import java.io.File;
 
 public class ShareDialog extends DialogFragment {
 
@@ -51,6 +55,11 @@ public class ShareDialog extends DialogFragment {
 
         binding.tvCopyLink.setOnClickListener(v -> {
             TextUtils.copyText(url);
+        });
+
+        binding.tvSavePic.setOnClickListener(v -> {
+            ImageUtils.saveImageToGallery(new File(path));
+            ToastUtils.show(MAPP.mapp, "已保存");
         });
 
         return binding.getRoot();
