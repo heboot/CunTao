@@ -23,6 +23,7 @@ import com.zonghong.cuntao.service.UserService;
 import com.zonghong.cuntao.utils.ImageUtils;
 import com.zonghong.cuntao.utils.IntentUtils;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,13 +89,18 @@ public class TransitionFragment extends BaseFragment<FragmentTransitionBinding> 
         HttpClient.Builder.getServer().curlget(UserService.getInstance().getToken(), params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<Object>() {
             @Override
             public void onSuccess(BaseBean<Object> baseBean) {
-                if(baseBean.getData() instanceof  CurlgetBean){
-                    dismissLoadingDialog();
-                    IntentUtils.intent2TransiionResultActivity((CurlgetBean) baseBean.getData());
-                }else{
+                /**
+                 * 别问我 没结果
+                 * 就是数组没办法
+                 */
+                if(baseBean.getData() instanceof Array){
                     dismissLoadingDialog();
                     tipDialog = DialogUtils.getFailDialog(_mActivity, baseBean.getMsg(), true);
                     tipDialog.show();
+                }else{
+                    dismissLoadingDialog();
+                    IntentUtils.intent2TransiionResultActivity((CurlgetBean) baseBean.getData());
+
                 }
             }
 

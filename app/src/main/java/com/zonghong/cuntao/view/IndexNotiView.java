@@ -87,7 +87,6 @@ public class IndexNotiView extends LinearLayout {
                 startY2 = isShow ? offsetY : 0;
                 endY2 = isShow ? 0 : -offsetY ;
                 ObjectAnimator.ofFloat(itemNotiBinding2.getRoot(), "translationY", startY2, endY2).setDuration(300).start();
-                LogUtil.e("滚动测试",isShow + "sy2="+ startY2 + "endy2=" + endY2);
                 handler.postDelayed(runnable, 3000);
             }
         };

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#e3e7c2"
+        android:layout_height="match_parent">
+
+
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+            android:id="@+id/tv_logo"
+            android:layout_width="@dimen/x64"
+            app:qmui_corner_radius="@dimen/x8"
+            android:layout_height="@dimen/y64"
+            android:layout_marginTop="@dimen/y150"
+            app:qmui_border_width="0dp"
+            android:src="@mipmap/app_logo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></com.qmuiteam.qmui.widget.QMUIRadiusImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
