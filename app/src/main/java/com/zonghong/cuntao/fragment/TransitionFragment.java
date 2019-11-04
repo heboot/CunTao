@@ -85,15 +85,21 @@ public class TransitionFragment extends BaseFragment<FragmentTransitionBinding> 
         params = new HashMap<>();
         params.put("type",type);
         params.put("code",binding.etContent.getText().toString());
-        HttpClient.Builder.getServer().curlget(UserService.getInstance().getToken(), params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<CurlgetBean>() {
+        HttpClient.Builder.getServer().curlget(UserService.getInstance().getToken(), params).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(new HttpObserver<Object>() {
             @Override
-            public void onSuccess(BaseBean<CurlgetBean> baseBean) {
-                dismissLoadingDialog();
-                IntentUtils.intent2TransiionResultActivity(baseBean.getData());
+            public void onSuccess(BaseBean<Object> baseBean) {
+                if(baseBean.getData() instanceof  CurlgetBean){
+                    dismissLoadingDialog();
+                    IntentUtils.intent2TransiionResultActivity((CurlgetBean) baseBean.getData());
+                }else{
+                    dismissLoadingDialog();
+                    tipDialog = DialogUtils.getFailDialog(_mActivity, baseBean.getMsg(), true);
+                    tipDialog.show();
+                }
             }
 
             @Override
-            public void onError(BaseBean<CurlgetBean> baseBean) {
+            public void onError(BaseBean<Object> baseBean) {
                 dismissLoadingDialog();
                 tipDialog = DialogUtils.getFailDialog(_mActivity, baseBean.getMsg(), true);
                 tipDialog.show();

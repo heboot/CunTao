@@ -134,7 +134,7 @@ public interface HttpClient {
 
     @FormUrlEncoded
     @POST("curlget")
-    Observable<BaseBean<CurlgetBean>> curlget(@Header("token") String token, @FieldMap Map<String, Object> params);
+    Observable<BaseBean<Object>> curlget(@Header("token") String token, @FieldMap Map<String, Object> params);
 
     @GET("getExplain")
     Observable<BaseBean<Map>> getExplain(@QueryMap Map<String, Object> params);

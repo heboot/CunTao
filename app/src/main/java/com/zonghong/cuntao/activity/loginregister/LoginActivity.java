@@ -54,12 +54,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
     }
 
     private void login() {
-
-        if(!StringUtils.isEmpty(UserService.getInstance().getToken())){
-            IntentUtils.doIntent(MainActivity.class);
-            finish();
-            return;
-        }
+//
+//        if(!StringUtils.isEmpty(UserService.getInstance().getToken())){
+//            IntentUtils.doIntent(MainActivity.class);
+//            finish();
+//            return;
+//        }
 
         if (StringUtils.isEmpty(binding.etPhone.getText())) {
             tipDialog = DialogUtils.getFailDialog(this, "请输入手机号码", true);
