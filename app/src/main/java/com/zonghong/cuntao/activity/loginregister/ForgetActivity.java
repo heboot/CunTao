@@ -45,7 +45,7 @@ public class ForgetActivity extends BaseActivity<ActivityForgetBinding> {
     }
 
     @Override
-    public void initData() {
+    public  void initData() {
         countDownObserver = new Observer<Integer>() {
             @Override
             public void onSubscribe(Disposable d) {
